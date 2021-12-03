@@ -1,0 +1,20 @@
+{
+  "name": "chess-game",
+  "version": "1.0.0",
+  "description": "Chess game to learn JS, NodeJS, Express, Socket.io, etc",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "author": "Emin Arslan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.4.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
