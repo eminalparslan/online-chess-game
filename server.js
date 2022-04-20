@@ -1,25 +1,25 @@
-const express = require('express');
-const http = require('http');
-const path = require('path');
-const socketio = require('socket.io');
+const express = require('express')
+const http = require('http')
+const path = require('path')
+const socketio = require('socket.io')
 
-const app = express();
-const server = http.createServer(app);
-const io = socketio(server);
+const app = express()
+const server = http.createServer(app)
+const io = socketio(server)
 
 // Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')))
 
 io.on('connection', socket => {
     socket.emit('message', 'Welcome to the game!')
     socket.on('disconnect', () => {
-        console.log('user disconnected');
-    });
-}); 
+        console.log('user disconnected')
+    })
+}) 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3300
 
 server.listen(PORT, () => {
-    console.log(`listening on *:${PORT}`);
-});
+    console.log(`listening on *:${PORT}`)
+})
 

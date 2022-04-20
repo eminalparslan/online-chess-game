@@ -1,12 +1,12 @@
-const socket = io();
+const socket = io()
 
 socket.on('message', message => {
-    console.log(message);
-});
+    console.log(message)
+})
 
 // Constructing board
 
-const range = (start, stop) => Array.from({length: stop - start + 1}, (_, i) => start + i);
+const range = (start, stop) => Array.from({length: stop - start + 1}, (_, i) => start + i)
 
 const boardProperties = {
     rows: range(1, 8).reverse(),
@@ -44,21 +44,21 @@ const pieces = {
     }
 }
 
-const board = document.querySelector('.board');
+const board = document.querySelector('.board')
 
-let colorToggle = false;
+let colorToggle = false
 
 for (const row of boardProperties.rows) {
-    const tr = document.createElement('tr');
+    const tr = document.createElement('tr')
     for (const col of boardProperties.cols) {
-        const td = document.createElement('td');
-        const color = colorToggle ? boardProperties.colors.dark: boardProperties.colors.light;
-        td.style.backgroundColor = color;
-        colorToggle = !colorToggle;
-        td.classList.add(col + row);
-        tr.appendChild(td);
+        const td = document.createElement('td')
+        const color = colorToggle ? boardProperties.colors.dark: boardProperties.colors.light
+        td.style.backgroundColor = color
+        colorToggle = !colorToggle
+        td.classList.add(col + row)
+        tr.appendChild(td)
     }
-    colorToggle = !colorToggle;
-    board.appendChild(tr);
+    colorToggle = !colorToggle
+    board.appendChild(tr)
 }
 
